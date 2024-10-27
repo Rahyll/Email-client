@@ -1,45 +1,48 @@
-<div class="grid grid-row-3 grid-cols-1">
-    <label>{{label}}</label>
-    <input [formControl]="control" [type]="type" autocomplete="new-password" class="px-2 py-0.5 border-solid border border-gray-300 rounded-md" />
-    <ng-container *ngIf="control.touched && control.dirty">
-        <p *ngIf="control.errors?.required" class="text-red-400">
+
+<label class="label">{{label}}</label>
+<div class="control">
+    <input [formControl]="control" [type]="type" autocomplete="new-password" class="input is-small" [ngClass]="{ 'is-danger': control.touched && control.dirty && control.errors }" />
+</div>
+<ng-container *ngIf="control.touched && control.dirty">
+    <ul>
+        <p class="help is-danger" *ngIf="control.errors?.required" >
             Field is required
         </p>
-        <p *ngIf=" control.errors?.minlength" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.minlength" >
             The input is {{control.errors?.minlength.actualLength}} character long. It must be at least {{control.errors?.minlength.requiredLength}} character
         </p>
-        <p *ngIf=" control.errors?.email" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.email" >
             You must enter a valid email
         </p>
-        <p *ngIf=" control.errors?.min" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.min" >
             Value is too Low
         </p>
-        <p *ngIf=" control.errors?.max" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.max" >
             Value is too High
         </p>
-        <p *ngIf=" control.errors?.pattern" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.pattern" >
             Value is invalid
         </p>
-        <p *ngIf=" control.errors?.noMatch" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.noMatch" >
             Passwords do not match.
         </p>
-        <p *ngIf=" control.errors?.noUppercaseLetter" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.noUppercaseLetter" >
             At least one uppercase letter.
         </p>
-        <p *ngIf=" control.errors?.noUppercaseLetter" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.noLowercaseLetter" >
             At least one lowercase letter.
         </p>
-        <p *ngIf=" control.errors?.noLowercaseLetter" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.noNumber" >
             At least one numeric digit.
         </p>
-        <p *ngIf=" control.errors?.noSpecialCharacter" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.noSpecialCharacter" >
             At least one special character.
         </p>
-        <p *ngIf=" control.errors?.emailTaken" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.emailTaken" >
             Email already exists!.
         </p>
-        <p *ngIf=" control.errors?.usernameTaken" class="text-red-400">
+        <p class="help is-danger" *ngIf=" control.errors?.usernameTaken" >
             Username already exists!.
         </p>
-    </ng-container>
-</div>
+    </ul>
+</ng-container>

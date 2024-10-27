@@ -1,7 +1,31 @@
-<div class="grid grid-rows-1 grid-cols-2">
-    <h1><a>Email Client</a></h1>
-    <ul class="">
-        <li class="display: inline-block"><a>Sign Up</a></li>
-        <li class="display: inline-block"><a>Sign In</a></li>
-    </ul>
+
+<div class="navbar is-fixed-top mb-auto">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <figure class="image is-48x48 is-square">
+                        <img src="data:image/png;base64,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" class="logo">
+                    </figure>
+                    <h2 class="title is-2 logoTitle">Velox</h2>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end" *ngIf="!(signedin$ | async) else authLinks">
+                        <a class="navbar-item ">Sign Up</a>
+                        <a class="navbar-item">Sign In</a>
+                </div>
+                <ng-template #authLinks>
+                    <div class="navbar-end">
+                        <a class="navbar-item ">Inbox</a>
+                        <a class="navbar-item">Sign Out</a>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
 </div>

@@ -1,1 +1,24 @@
-<p>signup works!</p>
+
+<div class="fixed-grid has-1-cols signupContainer">
+            <div class="grid box">
+                <h2 class="title is-4">Create an Account</h2>
+                <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                        <div class="field">
+                            <app-input [control]="username" label="Username"></app-input>
+                        </div>
+                        <div class="field">
+                            <app-input [control]="password" label="Password" type="password"></app-input>
+                        </div>
+                        <div class="field">
+                            <app-input [control]="passwordConfirmation" label="Confirm password" type="password"></app-input>
+                        </div>
+                        <div class="field is-grouped is-grouped-right">
+                            <p class="control">
+                                <button type="submit" class="button is-responsive" >
+                                    Submit
+                                </button>
+                            </p>
+                        </div>
+                </form>
+            </div>
+</div>
