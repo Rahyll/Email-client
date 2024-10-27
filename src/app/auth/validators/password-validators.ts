@@ -14,7 +14,7 @@ export class PasswordValidators{
             return {noNumber : true}
         }else if(!/[!@#$%^&*(),.?":{}|<>]/.test(control.value)){
             return {noSpecialCharacter:true}
-        }else if(!!/[a-z]/.test(control.value)){
+        }else if(!/[a-z]/.test(control.value)){
             return {noLowercaseLetter:true}
         }else{
             return null
