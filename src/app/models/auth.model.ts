@@ -7,3 +7,8 @@ export interface ISignup{
 export interface ISignupResponse{
     username:string
 }
+
+export interface ISignedinResponse{
+    authenticated:boolean;
+    username:string
+}

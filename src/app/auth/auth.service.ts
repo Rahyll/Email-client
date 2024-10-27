@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { ISignup, ISignupResponse } from '../models/auth.model';
-import { BehaviorSubject, tap } from 'rxjs';
+import { ISignedinResponse, ISignup, ISignupResponse } from '../models/auth.model';
+import { BehaviorSubject, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,11 @@ export class AuthService {
     }))
   }
   checkAuth(){
-    return this.http.get(`${this.authUrl}/signedin`)
+    return this.http.get<ISignedinResponse>(`${this.authUrl}/signedin`).pipe(
+      tap((resp)=>{
+        this.signedin$.next(resp.authenticated)
+      }),
+      map((resp)=>resp.authenticated)
+    )
   }
 }
