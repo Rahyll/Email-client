@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { ISignedinResponse, ISignup, ISignupResponse } from '../models/auth.model';
+import { ISignedinResponse, ISignin, ISigninResponse, ISignup, ISignupResponse } from '../models/auth.model';
 import { BehaviorSubject, map, tap } from 'rxjs';
 
 @Injectable({
@@ -22,6 +22,15 @@ export class AuthService {
       this.signedin$.next(true)
     }))
   }
+
+  signin(credentials:ISignin){
+    return this.http.post<ISigninResponse>(`${this.authUrl}/signin`,credentials).pipe(
+      tap(()=>{
+        this.signedin$.next(true)
+      })
+    )
+  }
+  
   checkAuth(){
     return this.http.get<ISignedinResponse>(`${this.authUrl}/signedin`).pipe(
       tap((resp)=>{

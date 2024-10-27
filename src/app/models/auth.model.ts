@@ -4,6 +4,15 @@ export interface ISignup{
     passwordConfirmation:string;
 }
 
+export interface ISignin{
+    username:string,
+    password:string
+}
+
+export interface ISigninResponse{
+    username:string
+}
+
 export interface ISignupResponse{
     username:string
 }

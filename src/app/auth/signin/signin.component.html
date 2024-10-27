@@ -1,1 +1,19 @@
-<p>Sign in works</p>
+<div class="fixed-grid has-1-cols singinContainer">
+    <div class="grid box">
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <app-input [control]="username" label="Username"></app-input>
+            </div>
+            <div class="field">
+                <app-input [control]="password" label="Password" type="text"></app-input>
+            </div>
+            <div class="field is-grouped is-grouped-right">
+                <div class="control">
+                    <button class="button is-responsive">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
